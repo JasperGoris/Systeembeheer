@@ -12,6 +12,8 @@
 
 Include /etc/ssh/sshd_config.d/*.conf
 
+UseDNS no
+
 Port 22345
 #AddressFamily any
 #ListenAddress 0.0.0.0
