@@ -4,7 +4,7 @@ $TTL    86400
 $ORIGIN jasper-goris.sb.uclllabs.be.
 
 @       IN      SOA     ns.jasper-goris.sb.uclllabs.be.  root.ns.jasper-goris.sb.uclllabs.be. (
-                             22         ; Serial
+                             23         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
@@ -27,3 +27,4 @@ ns1     IN      A       193.191.177.254
 ns2     IN      A       193.191.177.4
 www	IN	A	193.191.177.152
 www1	IN	A	193.191.177.152
+www2	IN	A	193.191.177.152
