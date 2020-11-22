@@ -1,0 +1,36 @@
+#get the first argument from the command line
+ZONE=$1
+
+#create a zone file with a unique name
+touch /etc/bind/zones/zone.$1
+
+#add the settings to the zone file.
+echo "\$TTL 360
+@   IN SOA  ns.$1.jasper-goris.sb.ucclllabs.be. root.ns.jasper-goris.sb.uclllabs.be. (
+                0       ; Serial
+                3H      ; Refresh
+                1H      ; Retry
+                1W      ; Expire
+                3H )    ; Negative Cache TTL
+
+@               IN      NS      ns.jasper-goris.sb.uclllabs.be." > /etc/bind/zones/zone.$1
+
+#add the records for the new subzone to the main zone.
+echo "$1              IN      NS       ns.jasper-goris.sb.uclllabs.be." >> /etc/bind/zones/db.ns.jasper-goris.sb.uclllabs.be
+echo "$1              IN      A        193.191.177.129" >> /etc/bind/zones/db.ns.jasper-goris.sb.uclllabs.be
+
+
+#put a description for the zone in the config.
+echo "zone \"$1.jasper-goris.sb.uclllabs.be\" {
+        type master;
+        file \"/etc/bind/zones/zone.$1\";
+};" >>  /etc/bind/named.conf.mrt-zones
+
+#increment the serials by 1
+perl -i  -pe '/Serial/ && s/(\d+)/$1+1 . $2/e' /etc/bind/zones/db.ns.jasper-goris.sb.uclllabs.be
+perl -i  -pe '/Serial/ && s/(\d+)/$1+1 . $2/e' /etc/bind/zones/zone.$1
+
+
+
+#reload
+rndc reload
