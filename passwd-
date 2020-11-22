@@ -31,3 +31,7 @@ systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
 check:x:1001:1001:check,,,:/home/check:/bin/bash
 ntp:x:110:118::/nonexistent:/usr/sbin/nologin
 bind:x:111:119::/var/cache/bind:/usr/sbin/nologin
+mysql:x:112:120:MySQL Server,,,:/nonexistent:/bin/false
+dovecot:x:113:121:Dovecot mail server,,,:/usr/lib/dovecot:/usr/sbin/nologin
+dovenull:x:114:122:Dovecot login user,,,:/nonexistent:/usr/sbin/nologin
+vmail:x:5000:5000::/var/vmail:/usr/bin/nologin

@@ -1,0 +1,8 @@
+zone "subzoneooth3l.jasper-goris.sb.uclllabs.be" {
+        type master;
+        file "/etc/bind/zones/zone.subzoneooth3l";
+};
+zone "subzoneuva0oo.jasper-goris.sb.uclllabs.be" {
+        type master;
+        file "/etc/bind/zones/zone.subzoneuva0oo";
+};

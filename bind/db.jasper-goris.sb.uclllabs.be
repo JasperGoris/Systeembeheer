@@ -3,8 +3,10 @@
 $TTL    86400
 $ORIGIN jasper-goris.sb.uclllabs.be.
 
+@	IN	MX	10 mx
+@	IN	CAA	128 issue "letsencrypt.org"
 @       IN      SOA     ns.jasper-goris.sb.uclllabs.be.  root.ns.jasper-goris.sb.uclllabs.be. (
-                             23         ; Serial
+                             30         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
@@ -28,3 +30,6 @@ ns2     IN      A       193.191.177.4
 www	IN	A	193.191.177.152
 www1	IN	A	193.191.177.152
 www2	IN	A	193.191.177.152
+secure	IN	A	193.191.177.152
+supersecure	IN	A	193.191.177.152
+mx	IN	A	193.191.177.152
