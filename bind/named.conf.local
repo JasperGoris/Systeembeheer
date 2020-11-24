@@ -6,6 +6,8 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
+include "/etc/bind/named.conf.mrt-zones";
+
 zone "jasper-goris.sb.uclllabs.be" {
       type master;
       file "/etc/bind/db.jasper-goris.sb.uclllabs.be";

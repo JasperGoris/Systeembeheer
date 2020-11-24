@@ -1,27 +1,42 @@
-SUBDOMAIN="`echo $1 | awk -F . '{print $1}'`"
-DOMAIN="`echo $1 | awk -F . '{print $2}'`"
+#!/bin/bash
 
-GREP=$(grep "$SUBDOMAIN[[:space:]]*IN[[:space:]]*A" /etc/bind/zones/zone.$DOMAIN)
-if [ -z "$GREP" ];
-then
-echo "i no findings"
-else
-	mkdir /var/www/html/domain.$SUBDOMAIN.$DOMAIN
-	touch /var/www/html/domain.$SUBDOMAIN.$DOMAIN/index.html
-	echo 'welcome '$SUBDOMAIN.$DOMAIN > /var/www/html/domain.$SUBDOMAIN.$DOMAIN/index.html
-
-	touch /etc/apache2/sites-available/domain.$SUBDOMAIN.$DOMAIN.conf
-	echo "<VirtualHost *:80>
-	# This first listed virtual host is also the default for *:80
-        	ServerName $1
-        	DocumentRoot /var/www/html/domain.$SUBDOMAIN.$DOMAIN
-
-        	LogLevel info
-        	ErrorLog "${APACHE_LOG_DIR}"/domain.$SUBDOMAIN.$DOMAIN-error.log
-        	CustomLog "${APACHE_LOG_DIR}"/domain.$SUBDOMAIN.$DOMAIN-access.log combined
-	</VirtualHost>" > /etc/apache2/sites-available/domain.$SUBDOMAIN.$DOMAIN.conf
-
-	a2ensite domain.$SUBDOMAIN.$DOMAIN
-
-	systemctl reload apache2
+if  [[ $(/usr/bin/id -u) -ne 0 ]]; then
+    echo "Not running as root"
+    exit
 fi
+
+vhost=$1
+
+#Create vhost in 003-scripts.conf
+echo 'Creating vhost'
+output=/etc/apache2/sites-available/003-scripts.conf
+echo '
+<VirtualHost *:80>
+        ServerName '"$1"'
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html/'"$1"'
+        ErrorLog ${APACHE_LOG_DIR}/'"$1"'-error.log
+        CustomLog ${APACHE_LOG_DIR}/'"$1"'-access.log combined
+</Virtualhost>' >> $output
+
+#create documentroot + index
+echo 'Creating documentroot'
+mkdir /var/www/html/$1
+IndexOutput=/var/www/html/$1/index.html
+
+#extract param subdomain
+IFS='.' read var1 var2 var3 <<< "$1"
+subdomain1="$var1"
+subdomain2="$var2"
+subdomain="$var1"'.'"$var2"
+echo 'subdomain: '"$subdomain"
+
+echo '<html>
+<body>
+<p>welcome '"$subdomain"'</p>
+</body>
+</html>' >> $IndexOutput
+
+echo 'reloading apache2'
+systemctl reload apache2
+echo 'Finished'

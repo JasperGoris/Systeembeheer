@@ -1,8 +1,12 @@
-zone "subzoneooth3l.jasper-goris.sb.uclllabs.be" {
-        type master;
-        file "/etc/bind/zones/zone.subzoneooth3l";
+zone "voorbeeld234.jasper-goris.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/db.voorbeeld234.jasper-goris.sb.uclllabs.be";
+  allow-transfer { 193.191.177.254; 193.191.177.4; 193.191.177.152; 193.191.177.158;  };
 };
-zone "subzoneuva0oo.jasper-goris.sb.uclllabs.be" {
-        type master;
-        file "/etc/bind/zones/zone.subzoneuva0oo";
+
+zone "subzoneoowi1o.jasper-goris.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/db.subzoneoowi1o.jasper-goris.sb.uclllabs.be";
+  allow-transfer { 193.191.177.254; 193.191.177.4; 193.191.177.152; 193.191.177.158;  };
 };
+

@@ -1,0 +1,9 @@
+$TTL 360
+@   IN SOA  ns.jasper-goris.jasper-goris.sb.ucclllabs.be. root.ns.jasper-goris.sb.uclllabs.be. (
+                1       ; Serial
+                3H      ; Refresh
+                1H      ; Retry
+                1W      ; Expire
+                3H )    ; Negative Cache TTL
+
+@               IN      NS      ns.jasper-goris.sb.uclllabs.be.

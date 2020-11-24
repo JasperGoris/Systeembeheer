@@ -4,9 +4,9 @@ $TTL    86400
 $ORIGIN jasper-goris.sb.uclllabs.be.
 
 @	IN	MX	10 mx
-@	IN	CAA	128 issue "letsencrypt.org"
+@	IN	CAA	1 issue "letsencrypt.org"
 @       IN      SOA     ns.jasper-goris.sb.uclllabs.be.  root.ns.jasper-goris.sb.uclllabs.be. (
-                             30         ; Serial
+			                                      38        ;Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
@@ -14,9 +14,10 @@ $ORIGIN jasper-goris.sb.uclllabs.be.
 
 
 ; Name servers for this domain
+	IN	NS	ns.jasper-goris.sb.ucllabs.be.
         IN      NS      ns1.uclllabs.be.
         IN      NS      ns2.uclllabs.be.
-        IN      NS      ns.jasper-goris.sb.uclllabs.be.
+#       IN      NS      ns.noa-andries.sb.uclllabs.be.
 
 
 
@@ -33,3 +34,5 @@ www2	IN	A	193.191.177.152
 secure	IN	A	193.191.177.152
 supersecure	IN	A	193.191.177.152
 mx	IN	A	193.191.177.152
+voorbeeld234      IN      NS      ns.jasper-goris.sb.uclllabs.be.
+subzoneoowi1o      IN      NS      ns.jasper-goris.sb.uclllabs.be.
