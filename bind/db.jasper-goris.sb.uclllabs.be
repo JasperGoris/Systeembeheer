@@ -6,8 +6,8 @@ $ORIGIN jasper-goris.sb.uclllabs.be.
 @	IN	MX	10 mx
 @	IN	CAA	1 issue "letsencrypt.org"
 @       IN      SOA     ns.jasper-goris.sb.uclllabs.be.  root.ns.jasper-goris.sb.uclllabs.be. (
-			                                      38        ;Serial
-                         604800         ; Refresh
+			                                      40        ;Serial
+                            500         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
                           86400 )       ; Negative Cache TTL
@@ -36,3 +36,4 @@ supersecure	IN	A	193.191.177.152
 mx	IN	A	193.191.177.152
 voorbeeld234      IN      NS      ns.jasper-goris.sb.uclllabs.be.
 subzoneoowi1o      IN      NS      ns.jasper-goris.sb.uclllabs.be.
+firsttest      IN      NS      ns.jasper-goris.sb.uclllabs.be.

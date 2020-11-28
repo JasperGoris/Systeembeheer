@@ -10,3 +10,9 @@ zone "subzoneoowi1o.jasper-goris.sb.uclllabs.be" {
   allow-transfer { 193.191.177.254; 193.191.177.4; 193.191.177.152; 193.191.177.158;  };
 };
 
+zone "firsttest.jasper-goris.sb.uclllabs.be" {
+  type master;
+  file "/etc/bind/db.firsttest.jasper-goris.sb.uclllabs.be";
+  allow-transfer { 193.191.177.254; 193.191.177.4; 193.191.177.152; 193.191.177.158;  };
+};
+
