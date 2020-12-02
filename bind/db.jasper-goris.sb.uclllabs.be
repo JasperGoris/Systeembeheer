@@ -6,7 +6,7 @@ $ORIGIN jasper-goris.sb.uclllabs.be.
 @	IN	MX	10 mx
 @	IN	CAA	1 issue "letsencrypt.org"
 @       IN      SOA     ns.jasper-goris.sb.uclllabs.be.  root.ns.jasper-goris.sb.uclllabs.be. (
-			                                      40        ;Serial
+			                                      41        ;Serial
                             500         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
@@ -34,6 +34,12 @@ www2	IN	A	193.191.177.152
 secure	IN	A	193.191.177.152
 supersecure	IN	A	193.191.177.152
 mx	IN	A	193.191.177.152
+
+; AAAA records
+@	IN	AAAA	2001:6a8:2880:a077::98
+ns	IN	AAAA	2001:6a8:2880:a077::98
+
+; NS records
 voorbeeld234      IN      NS      ns.jasper-goris.sb.uclllabs.be.
 subzoneoowi1o      IN      NS      ns.jasper-goris.sb.uclllabs.be.
 firsttest      IN      NS      ns.jasper-goris.sb.uclllabs.be.
