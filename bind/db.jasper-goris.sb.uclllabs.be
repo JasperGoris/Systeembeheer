@@ -1,16 +1,16 @@
 ; BIND reverse data file for empty rfc1918 zone
 ;
-$TTL    86400
+$TTL    300
 $ORIGIN jasper-goris.sb.uclllabs.be.
 
 @	IN	MX	10 mx
 @	IN	CAA	1 issue "letsencrypt.org"
 @       IN      SOA     ns.jasper-goris.sb.uclllabs.be.  root.ns.jasper-goris.sb.uclllabs.be. (
-			                                      42        ;Serial
+			                                      43        ;Serial
                             500         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
-                          86400 )       ; Negative Cache TTL
+                          300 )       ; Negative Cache TTL
 
 
 ; Name servers for this domain

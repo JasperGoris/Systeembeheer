@@ -36,7 +36,7 @@ $ORIGIN '"$zone"'.jasper-goris.sb.uclllabs.be.
                                 604800          ;Refresh
                                 86400           ;Retry
                                 2419200         ;Expire
-                                86400 )         ;Negative Cache TTL
+                                300 )           ;Negative Cache TTL
 ;Name servers
 @       IN      NS      ns.'"$zone"'.jasper-goris.sb.uclllabs.be.
 @       IN      NS      ns.jasper-goris.sb.uclllabs.be.
