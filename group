@@ -66,3 +66,5 @@ vmail:x:5000:
 stunnel4:x:123:
 manual:x:5001:
 help:x:5002:
+ftp:x:124:
+mystery1_2014:x:5003:
